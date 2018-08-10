@@ -1,0 +1,44 @@
+﻿<div ng-controller="gitSearchController">
+    <input type="text" ng-model="q" class="js-site-search-focus  chromeless-input" data-hotkey="s" name="q" placeholder="Search GitHub" aria-label="Search GitHub" data-global-scope-placeholder="Search GitHub" data-repo-scope-placeholder="Search" tabindex="1" autocapitalize="off">
+    <button ng-click="search()">
+        Search
+    </button>
+    <label for="repeatSelect"> Sort: </label>
+    <select name="repeatSelect" id="repeatSelect" ng-model="dataSelect.repeatSelect" ng-change="search()">
+        <option ng-repeat="option in dataSelect.availableOptions" value="{{option.codSearch}}">{{option.name}}</option>
+    </select>
+    
+    <div ng-show="visualizaResultados">
+        <h3>
+            We’ve found {{total_count}} repository results
+        </h3>
+    </div>
+    <div ng-repeat="dados in data track by $index">
+        <li class="repo-list-item public source">
+            <a class="btn" href="#/gitDetail/{{dados.id}}">View Detail</a>
+            <div class="repo-list-stats">
+                {{dados.language}}
+                <a class="repo-list-stat-item tooltipped tooltipped-s" href="ecomfe/ef/stargazers" aria-label="Stargazers">
+                    <span aria-hidden="true" class="octicon octicon-star"></span>
+                    {{dados.stargazers_count}}
+                </a>
+                <a class="repo-list-stat-item tooltipped tooltipped-s" href="ecomfe/ef/network" aria-label="Forks">
+                    <span aria-hidden="true" class="octicon octicon-git-branch"></span>
+                    {{dados.forks_count}}
+                </a>
+            </div>
+
+            <h3 class="repo-list-name">
+                <a href={{dados.html_url}}><em>{{dados.full_name}}</em></a>
+
+            </h3>
+            <p class="repo-list-description">
+                {{dados.description}}
+            </p>
+
+            <p class="repo-list-meta">
+                Updated {{dados.updated_at  | date:'dd MMM yyyy'}}
+            </p>
+        </li>
+    </div>
+</div>

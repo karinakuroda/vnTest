@@ -1,0 +1,46 @@
+﻿<div ng-controller="gitDetailController">
+    <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav">
+        <div class="container repohead-details-container">
+            <ul class="pagehead-actions">
+                <li class="pagehead-item">
+                    <a href="/" class="btn btn-sm btn-with-count tooltipped tooltipped-n" aria-label="You must be signed in to watch a repository" rel="nofollow">
+                        Watch
+                    </a>
+                    <a class="social-count" href="/">
+                        {{data.subscribers_count}}
+                    </a>
+                </li>
+                <li class="pagehead-item">
+                    <a href="/" class="btn btn-sm btn-with-count tooltipped tooltipped-n" aria-label="You must be signed in to star a repository" rel="nofollow">
+                        Star
+                    </a>
+                    <a class="social-count js-social-count" href="{{data.stargazers_url}}">
+                        {{data.stargazers_count}}
+                    </a>
+                </li>
+
+                <li class="pagehead-item">
+                    <a href="/" class="btn btn-sm btn-with-count tooltipped tooltipped-n" aria-label="You must be signed in to fork a repository" rel="nofollow">
+                        Fork
+                    </a>
+
+                    <a href="/" class="social-count">
+                        {{data.forks}}
+                    </a>
+                </li>
+            </ul>
+
+            <h1 itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public ">
+                <span class="author"><a href="/{{data.owner.login}}" class="url fn" itemprop="url" rel="author"><span itemprop="title">{{data.owner.login}}</span></a></span>
+                <span class="path-divider">/</span>
+                <strong><a href="/{{data.full_name}}" data-pjax="#js-repo-pjax-container">{{data.name}}</a></strong>
+                <span class="page-context-loader">
+                    <img alt="" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16">
+                </span>
+
+            </h1>
+
+        </div>
+       
+    </div>
+</div>
